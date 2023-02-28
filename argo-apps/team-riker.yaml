@@ -16,9 +16,6 @@ spec:
     repoURL: https://github.com/starchx/eks-blueprints-workloads
     targetRevision: simple
     path: applications
-    helm:
-      values: |
-        {{- toYaml .Values | nindent 8 }}
   syncPolicy:
     automated:
       prune: true
