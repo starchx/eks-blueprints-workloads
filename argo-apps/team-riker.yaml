@@ -4,18 +4,18 @@ metadata:
   name: team-riker
   namespace: argocd
   labels:
-    {{- toYaml .Values.labels | nindent 4 }}  
+    env: dev
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   destination:
     namespace: team-riker
-    server: {{ .Values.spec.destination.server }}
+    server: https://kubernetes.default.svc
   source:
-    repoURL: {{ .Values.spec.source.repoURL }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
-    path: teams/team-riker/prod
+    repoURL: https://github.com/starchx/eks-blueprints-workloads
+    targetRevision: simple
+    path: applications
     helm:
       values: |
         {{- toYaml .Values | nindent 8 }}
