@@ -1,0 +1,30 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: workload-podinfo
+  namespace: argocd
+  labels:
+    app: podinfo
+    env: {{ .Values.env }}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  source:
+    repoURL: https://github.com/starchx/eks-blueprints-workloads
+    targetRevision: main
+    path: apps/podinfo
+    helm:
+      valueFiles:
+      - values.yaml
+      - values-{{ .Values.env }}.yaml
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+    - CreateNamespace=true

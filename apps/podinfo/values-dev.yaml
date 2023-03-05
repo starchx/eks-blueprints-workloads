@@ -1,0 +1,9 @@
+# Development values for podinfo.
+replicaCount: 1
+
+image:
+  tag: 6.3.4
+
+ui:
+  color: "#34577c"
+  message: "this is dev"
