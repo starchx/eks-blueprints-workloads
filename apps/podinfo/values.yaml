@@ -13,7 +13,7 @@ image:
 
 ui:
   color: "#34577c"
-  message: "this is default"
+  message: ""
   logo: ""
 
 # failure conditions
@@ -108,10 +108,10 @@ ingress:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
   hosts:
-    - host: "*"
+    - host: podinfo.local
       paths:
         - path: /
-          pathType: ImplementationSpecific
+          pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
