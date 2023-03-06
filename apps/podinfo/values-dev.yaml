@@ -5,5 +5,5 @@ image:
   tag: 6.3.4
 
 ui:
-  color: "#7fa66c"
+  color: "#34577c"
   message: "this is dev"
