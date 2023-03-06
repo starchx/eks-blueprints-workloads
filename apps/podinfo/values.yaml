@@ -13,7 +13,7 @@ image:
 
 ui:
   color: "#34577c"
-  message: ""
+  message: "this is default"
   logo: ""
 
 # failure conditions
